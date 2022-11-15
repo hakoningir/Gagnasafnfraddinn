@@ -34,8 +34,8 @@ public class V11
             stmt.executeUpdate("DROP TABLE IF EXISTS R");
             stmt.executeUpdate("DROP INDEX IF EXISTS RINDEX");
             stmt.executeUpdate("CREATE TABLE R(key integer primary key, value double)");
-            if(USE_INDEX) stmt.executeQuery("CREATE INDEX RINDEX ON R (VALUE)");
-            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO R VALUES(?,?)");
+            if(USE_INDEX) stmt.executeUpdate("CREATE INDEX RINDEX ON R (VALUE)");
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO R VALUES(?, ?)");
 
             long start,end;
 
